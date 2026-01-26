@@ -3,7 +3,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Card from "./Card";
-import { LanguageContext } from "../providers/languageContext";
 import {
     FaCode,
     FaMobileAlt,
