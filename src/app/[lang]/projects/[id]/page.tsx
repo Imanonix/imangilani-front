@@ -20,7 +20,7 @@ const Container= styled.div`
 const page = () => {
 
     const {language} = useContext<LanguageContextType>(LanguageContext)
-    const [isLoading, setIsLoading] = useState<boolean>(true)
+    const [, setIsLoading] = useState<boolean>(true)
     const [projects, setProjects] = useState<IProjectsPreviewDTO[]>([])
     useEffect(() => {
         const fetchProject = async () => {
