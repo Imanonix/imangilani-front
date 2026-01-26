@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "Vazir";
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2")
+      format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+body{
+    /* background-color: #393E46; */
+    color: #fff;
+}
+
+.content-body {
+  font-size: 1rem;
+  line-height: 1.9;
+  text-align: justify;
+  padding: 0px 30px;
+}
+
+/* RTL فقط برای فارسی */
+.content-body[lang="fa"] {
+  direction: rtl;
+  font-family: "Vazir";
+}
+
+.content-body .image-caption {
+  text-align: center !important;
+  display: block;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  color: #eee;
+  font-weight: 500;
+}
+
+.content-body .footnote-anchor {
+  vertical-align: super;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0 2px;
+  color: #4db3a5;
+}
+
+.content-body p {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.content-body img {
+  width: 70%;
+  border-radius: 8px;
+  display: block;
+  margin: 10px auto;
+}
+
+.content-body a {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.content-body ul {
+  list-style-type: disc;
+  margin-right: 30px;
+}
+
+.content-body iframe[src*="youtube.com"],
+.content-body iframe[src*="youtu.be"],
+.content-body iframe[src*="twitter.com"] {
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* responsive */
+@media (min-width: 481px) and (max-width: 767px) {
+  .content-body {
+    width: 96%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-body {
+    width: 90%;
+    margin-top: 1rem;
+  }
+}
+
+
