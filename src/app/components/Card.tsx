@@ -19,25 +19,25 @@ const Card = ({ input, icon: Icon, imag, currentIndex }: CardProps) => {
     return (
         <div
             ref={ref}
-            style={{transform: `translateY(-${currentIndex * realHeight}px)`, width:"600px" , height:"400px"}}
+            style={{transform: `translateY(-${currentIndex * realHeight}px)`}}
             className={`   
-                flex flex-col items-center gap-6
-                w-[calc(100%-1rem)]
-                w-[calc(100%-1rem)]
-                h-50
+                flex flex-col items-center gap-6                
+                w-[360px]
+                h-[250px]
+                md:w-[650px]
+                md:h-[300px]
                 hover:text-[#F9C74F]
                 text-gray-200
-                text-center
                 text-[17px] font-semibold
                 transition-all duration-1000
                 hover:text-gray-200
                 ${language === "fa" ? "font-vazir" : "font-roboto"}
             `}>
                 <img src={imag} style={{opacity:"0.8", 	objectFit:"cover"}}/>
-            <div className="text-5xl text-gray-200 absolute top-15">
-                <Icon size={62}/>
+            <div className="text-gray-200 absolute top-10">
+                <Icon size={48}/>
             </div>
-            <div className="absolute top-50" style={{fontSize:"32px"}}>{input}</div>
+            <div className="absolute text-1xl md:text-3xl top-35">{input}</div>
            
         </div>
     );

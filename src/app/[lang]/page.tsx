@@ -22,29 +22,31 @@ const homeTexts: Record<
     en: {
         heroTitle: "Website & Application Design",
         heroDescription:
-            "Crafting visually stunning websites and powerful applications that engage users and deliver seamless experiences. From modern UI design to robust backend solutions, we combine creativity and technology to bring your digital ideas to life.",
+            "I design visually stunning websites and powerful applications that engage users and deliver seamless experiences. From modern UI design to robust backend solutions, I combine creativity and technology to bring digital ideas to life.",
         servicesTitle: "Services",
         servicesDescription:
-            "We provide full-stack web development, responsive UI/UX design, mobile application solutions, and custom software tailored to your business needs. Our team ensures seamless integration and high-performance solutions.",
-        projectsTitle: "Projects",
+            "I provide full-stack web development, responsive UI/UX design, mobile application solutions, and custom software tailored to specific business needs, ensuring seamless integration and high performance.",
+        projectsTitle: "Portfolio",
     },
+
     de: {
         heroTitle: "Webseiten- & Anwendungsdesign",
         heroDescription:
-            "Wir entwickeln visuell ansprechende Webseiten und leistungsstarke Anwendungen, die Nutzer begeistern und reibungslose Erlebnisse bieten. Von modernem UI-Design bis hin zu robusten Backend-Lösungen verbinden wir Kreativität mit Technologie.",
+            "Ich entwerfe visuell ansprechende Webseiten und leistungsstarke Anwendungen, die Nutzer begeistern und reibungslose Erlebnisse bieten. Von modernem UI-Design bis hin zu robusten Backend-Lösungen verbinde ich Kreativität mit Technologie.",
         servicesTitle: "Leistungen",
         servicesDescription:
-            "Wir bieten Full-Stack-Webentwicklung, responsives UI/UX-Design, mobile Anwendungslösungen sowie maßgeschneiderte Software für Ihre Geschäftsanforderungen. Unser Team sorgt für nahtlose Integration und hohe Performance.",
-        projectsTitle: "Projekte",
+            "Ich biete Full-Stack-Webentwicklung, responsives UI/UX-Design, mobile Anwendungslösungen sowie maßgeschneiderte Software, abgestimmt auf spezifische Geschäftsanforderungen, mit Fokus auf nahtlose Integration und hohe Performance.",
+        projectsTitle: "Portfolio",
     },
+
     fa: {
         heroTitle: "طراحی وب‌سایت و اپلیکیشن",
         heroDescription:
-            "ما وب‌سایت‌ها و اپلیکیشن‌هایی زیبا و قدرتمند طراحی می‌کنیم که کاربران را درگیر کرده و تجربه‌ای روان ارائه می‌دهند. از طراحی مدرن رابط کاربری تا پیاده‌سازی بک‌اند قدرتمند، خلاقیت و تکنولوژی را برای تحقق ایده‌های دیجیتال شما ترکیب می‌کنیم.",
-        servicesTitle: "خدمات ما",
+            "من وب‌سایت‌ها و اپلیکیشن‌هایی زیبا و قدرتمند طراحی می‌کنم که کاربران را درگیر کرده و تجربه‌ای روان ارائه می‌دهند. از طراحی مدرن رابط کاربری تا پیاده‌سازی بک‌اند قدرتمند، خلاقیت و فناوری را برای تحقق ایده‌های دیجیتال ترکیب می‌کنم.",
+        servicesTitle: "خدمات",
         servicesDescription:
-            "ما خدمات توسعه فول‌استک وب، طراحی UI/UX واکنش‌گرا، توسعه اپلیکیشن‌های موبایل و نرم‌افزارهای سفارشی متناسب با نیاز کسب‌وکار شما را ارائه می‌دهیم. تمرکز ما بر یکپارچگی و عملکرد بالا است.",
-        projectsTitle: "پروژه‌های ما",
+            "من خدمات توسعه فول‌استک وب، طراحی UI/UX واکنش‌گرا، توسعه اپلیکیشن‌های موبایل و نرم‌افزارهای سفارشی متناسب با نیازهای خاص کسب‌وکار ارائه می‌دهم و بر یکپارچگی و عملکرد بالا تمرکز دارم.",
+        projectsTitle: "نمونه‌کارها",
     },
 };
 
@@ -60,26 +62,21 @@ const GetProjects = async (language: string): Promise<IProjectsPreviewDTO[]> => 
 };
 
 
-
 export default async function Home({ params }: { params: { lang: Lang }; }) {
     const { lang } = await params;
     const language = lang as "en" | "fa" | "de";
-    // const cookieStore = cookies();
-    // const language = ((await cookieStore).get("language")?.value ?? "en") as Lang;
     const projects = await GetProjects(language);
     const t = homeTexts[language];
 
-    console.log(language)
     return (
-        <div lang={language} className="w-full flex flex-wrap justify-center" style={{ direction: language === "fa" ? "rtl" : "ltr", fontFamily: language === "fa"? "Vazir" : "Roboto", backgroundImage: 'url("/images/free.jpg")', backgroundSize: "cover" }}>
-            <div className="flex flex-col items-center">
-                <div className="w-4/5 flex flex-wrap justify-center pt-10 pb-5">
-                    <div className="w-4/5 md:w-[45%] flex flex-col justify-center px-4">
+        <div lang={language} className="w-full flex flex-wrap justify-center" style={{ direction: language === "fa" ? "rtl" : "ltr", fontFamily: language === "fa" ? "Vazir" : "Roboto", backgroundColor: "#393E46" }}>
+            <div className="flex flex-col w-full items-center">
+                <div className="w-[90%] md:w-4/5 flex flex-wrap justify-center pt-10 pb-5">
+                    <div className="w-[100%] md:w-[48%] flex flex-col justify-center">
                         <h1 className={`text-3xl font-bold mb-8 text-[#F9C74F] ${language === "fa" ? "text-right" : "text-left"}`}>
                             {t.heroTitle}
                         </h1>
-
-                        <p className="text-lg text-justify leading-8">
+                        <p className="text-lg leading-8">
                             {t.heroDescription}
                         </p>
                     </div>
@@ -87,24 +84,23 @@ export default async function Home({ params }: { params: { lang: Lang }; }) {
                 </div>
 
                 {/* SERVICES */}
-                <div className="w-4/5 flex flex-row items-start py-15">
-                    <section className="w-1/2 flex flex-col items-start">
+                <div className="w-[90%] md:w-4/5 flex flex-col items-center justify-center pb-10">
+                    <div className="flex flex-col items-start">
                         <h2 className="text-3xl font-bold mt-4 mb-4 text-[#F9C74F]">
                             {t.servicesTitle}
                         </h2>
-                        <p className="text-lg text-justify leading-8 mb-6">
+                        <p className="text-lg leading-8 mb-6">
                             {t.servicesDescription}
                         </p>
-                    </section>
+                    </div>
 
                     {/* <CarouselSlider /> */}
                     <ScrollLine language={language} />
                 </div>
             </div>
 
-
             {/* PROJECTS */}
-            <section className="w-full md:w-4/5 flex flex-col items-start mx-auto pb-10">
+            <section className="w-[90%] md:w-4/5 flex flex-col items-start mx-auto pb-10">
                 <h2 className="text-3xl font-bold mb-4 text-[#F9C74F]">
                     {t.projectsTitle}
                 </h2>

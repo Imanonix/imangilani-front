@@ -29,13 +29,13 @@ export const serviceImages = [
     "/images/maintenance.jpg"
 ]
 interface ScrollLineProps {
-    language:"en"|"de"|"fa"
+    language: "en" | "de" | "fa"
 }
 
-const ScrollLine = ({language}:ScrollLineProps) => {
+const ScrollLine = ({ language }: ScrollLineProps) => {
     const [pages, setPages] = useState<IPageDTO[]>([]);
     const [currentIndex, setCurrentIndex] = useState<number>(0)
-    
+
 
     /* ================= FETCH ================= */
     useEffect(() => {
@@ -65,8 +65,13 @@ const ScrollLine = ({language}:ScrollLineProps) => {
 
 
     return (
-        <div className="w-1/2 flex justify-center mx-auto my-0">
-            <div className={`relative w-full overflow-hidden`} style={{width:"600px", height:"400px"}}>
+        <div className="w-1/2 flex justify-center mx-auto my-0 
+            w-[360px]
+            md:w-[650px]
+            h-[250px]
+            md:h-[300px]
+            ">
+            <div className={`w-4/5 relative w-full overflow-hidden`}>
                 {pages.map((item, index) => {
                     const Icon = serviceIcons[index % serviceIcons.length];
                     const Img = serviceImages[index % serviceImages.length];

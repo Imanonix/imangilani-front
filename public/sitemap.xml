@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- صفحه اصلی -->
+  <url>
+    <loc>https://www.imangilani.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- درباره من -->
+  <url>
+    <loc>https://www.imangilani.com/about/4</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- تماس -->
+  <url>
+    <loc>https://www.imangilani.com/contact/8</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- پروژه‌ها -->
+  <url>
+    <loc>https://www.imangilani.com/projects/9</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- تجربه کاری -->
+  <url>
+    <loc>https://www.imangilani.com/experience/6</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- مهارت‌های فنی -->
+  <url>
+    <loc>https://www.imangilani.com/technical/5</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

@@ -37,29 +37,29 @@ export default async function ProjectDetailsPage({ params }: Props){
     }
 
     return (
-        <section className="min-h-screen py-10 px-4">
-            <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-10 space-y-6">
+        <section className="bg-[#393E46] min-h-screen py-10 px-4">
+            <div className="max-w-4xl mx-auto bg-[#222831] rounded-2xl shadow-lg p-6 md:p-10 space-y-6">
 
                 {/* Title */}
-                <h1 className="w-full text-center text-3xl font-bold text-gray-800">
+                <h1 className="w-full text-center text-3xl font-bold text-white">
                     {project.title}
                 </h1>
 
                 <span className="flex w-full flex-wrap justify-center items-center gap-2">
                     <FaTags />
                     {project.projectTags.split(",").filter(item => item !== "").map((tag, index) => (
-                        <span key={index} className="px-3 py-1 bg-[#006D6F] text-white text-xs md:text-sm rounded-full"> {tag} </span>
+                        <span key={index} className="px-3 py-1 bg-[#F9C74F] text-black text-xs md:text-sm rounded-full"> {tag} </span>
                     ))}
                 </span>
                 {/* Meta info */}
-                <div className="flex width-full justify-around flex-wrap gap-4 text-sm text-gray-600">
+                <div className="flex width-full justify-around flex-wrap gap-4 text-sm text-white">
                     <span className="flex items-center gap-2">
                         <FaCalendarAlt />
                         {new Date(project.projectDate).toLocaleDateString()}
                     </span>
 
                     {project.projectDuration && (
-                        <span className="px-3 py-1 bg-gray-100 rounded-full">
+                        <span className="px-3 py-1 rounded-full">
                             {project.projectDuration}
                         </span>
                     )}
@@ -67,7 +67,7 @@ export default async function ProjectDetailsPage({ params }: Props){
 
                 {/* Summary */}
                 {project.summary && (
-                    <p className={`text-gray-700 leading-relaxed text-lg ${lang === "fa" ? "text-right" : "text-left"}`}>
+                    <p className={`text-white leading-relaxed text-lg ${lang === "fa" ? "text-right" : "text-left"}`}>
                         {project.summary}
                     </p>
                 )}
@@ -88,7 +88,7 @@ export default async function ProjectDetailsPage({ params }: Props){
                         rel="noopener noreferrer"
                         className="
                             inline-flex items-center gap-2
-                            text-white bg-teal-600 hover:bg-teal-700
+                            text-black bg-[#F9C74F] hover:bg-[#fdbc23]
                             px-6 py-3 rounded-xl transition
                         "
                     >

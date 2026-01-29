@@ -74,7 +74,7 @@ const ProjectCard = (project: IProjectsPreviewDTO) => {
             </p>
 
             <Link
-                href={`/project/${project.id}/${language}`}
+                href={`/${language}/project/${project.id}`}
                 className="
                     border-1 border-white hover:bg-[#fff] hover:text-[#38383B]
                     p-2  mt-auto mx-auto w-1/2 cursor-pointer 

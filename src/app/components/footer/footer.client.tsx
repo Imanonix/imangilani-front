@@ -14,9 +14,9 @@ export const IconMap: Record<string, JSX.Element> = {
 
 const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) => {
     const aboutText = {
-        en: "We provide high-quality web and software solutions, combining creativity and technology for your success.",
-        fa: "ما راهکارهای وب و نرم‌افزاری با کیفیت بالا ارائه می‌دهیم و خلاقیت و فناوری را برای موفقیت شما ترکیب می‌کنیم.",
-        de: "Wir bieten hochwertige Web- und Softwarelösungen und kombinieren Kreativität und Technologie für Ihren Erfolg.",
+        en: "I develop high-quality web and software solutions with a focus on clean design, performance, and modern technologies.",
+        fa: "من راهکارهای وب و نرم‌افزاری با کیفیت بالا با تمرکز بر طراحی تمیز، عملکرد و فناوری‌های مدرن توسعه می‌دهم.",
+        de: "Ich entwickle hochwertige Web- und Softwarelösungen mit Fokus auf sauberes Design, Performance und moderne Technologien."
     };
 
     const dir = language === "fa" ? "rtl" : "ltr";
@@ -24,7 +24,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
     return (
         <footer
             dir={dir}
-            style={{fontFamily: language === "fa"? "Vazir" : "Roboto", backgroundImage:"url(/images/footer.jpg)", fontSize:"17px"}}
+            style={{ fontFamily: language === "fa" ? "Vazir" : "Roboto", fontSize: "17px" }}
             className="w-full bg-[#222831] text-white px-4 pt-12 pb-4 flex flex-col gap-8 border-t-2 border-[#F9C74F]"
 
         >
@@ -33,7 +33,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
                 {/* About */}
                 <div className="flex-1 min-w-[200px]">
                     <h4 className="font-bold mb-4 text-[#C2C8CC]">
-                        {language === "fa" ? "درباره ما" : language === "de" ? "Über uns" : "About Us"}
+                        {language === "fa" ? "درباره ما" : language === "de" ? "Über" : "About"}
                     </h4>
                     <p className="leading-relaxed">{aboutText[language]}</p>
                 </div>
@@ -41,7 +41,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
                 {/* Services */}
                 <div className="flex-1 min-w-[200px]">
                     <h4 className="font-bold mb-4 text-[#C2C8CC]">
-                        {language === "fa" ? "خدمات ما" : language === "de" ? "Unsere Leistungen" : "Our Services"}
+                        {language === "fa" ? "خدمات ما" : language === "de" ? "Unsere Leistungen" : "Services"}
                     </h4>
                     {pages
                         .filter((p) => p.position === "sidebar")
@@ -58,7 +58,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
 
                 {/* Contact */}
                 <div className="flex-1 min-w-[200px]">
-                    <h4  className="font-bold mb-4 text-[#C2C8CC]">
+                    <h4 className="font-bold mb-4 text-[#C2C8CC]">
                         {language === "fa" ? "ارتباط با ما" : language === "de" ? "Kontakt" : "Contact"}
                     </h4>
 
@@ -69,7 +69,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
 
                     <p className="flex items-center gap-2 mb-4">
                         <FaPhone />
-                        +123 456 7890
+                        +49 163 1394782
                     </p>
 
                     <div className="flex gap-4">

@@ -28,7 +28,7 @@ const HeaderClient = ({ pages, socialMediaList, language }: IHeaderClientProps) 
     };
     return (
         <div className="w-full bg-[#222831] sticky top-0 z-50 ">
-            <nav className="w-4/5 mx-auto flex px-6 pt-3 text-sm  space-between justify-between ">
+            <nav className="w-[90%] mb:w-4/5 mx-auto flex px-6 pt-3 text-sm  space-between justify-between ">
                 <div>
                     <Link href={"/"} style={{fontFamily: language === "fa"? "Vazir" : "Roboto"}} className="pt-2 px-5 capitalize  cursor-pointer text-l hover:text-[#F9C74F]">{language === "fa" ? "خانه " : "Home"}</Link>
                     {pages.filter(p => p.position === "top").map(p => (
@@ -44,8 +44,8 @@ const HeaderClient = ({ pages, socialMediaList, language }: IHeaderClientProps) 
                     <li onClick={() => changeLanguage("fa")} className="py-1 px-2  hover:text-[#F9C74F] cursor-pointer">Fa</li>
                 </ul>
             </nav>
-            <hr className="w-4/5 mx-auto"/>
-            <nav className="w-4/5 mx-auto flex px-6 py-2 text-sm space-between justify-between">
+            <hr className="w-[90%] mb:w-4/5 mx-auto"/>
+            <nav className="w-[90%] mb:w-4/5 mx-auto flex px-6 py-2 text-sm space-between justify-between">
 
                 <ul className="flex">
                     {
