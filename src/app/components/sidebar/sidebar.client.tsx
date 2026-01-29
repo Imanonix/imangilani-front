@@ -71,10 +71,13 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
             dir={dir}
             className="
         sticky top-24 h-fit
-        w-1/4 
+        w-full
+        md:w-2/5
+        lg:w-1/4 
+        xl:w-1/5
         border border-[#F9C74F]
         bg-[#222831]
-        p-6 lg:p-4
+        p-3 lg:p-4
         m-x-2
         max-md:static max-md:w-[94%] max-md:mx-auto max-md:mt-8
         flex flex-col gap-7

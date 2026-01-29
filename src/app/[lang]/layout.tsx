@@ -6,7 +6,7 @@ import "../globals.css"
 
 export const metadata: Metadata = {
     title: "Iman Gilani",
-    description: "Create Website and Application, Web Application, Mobile Application",
+    description: "Iman Gilani, software developer specializing in web development, mobile applications, and modern digital solutions."
 };
 
 const roboto = Roboto({
