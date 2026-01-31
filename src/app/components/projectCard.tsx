@@ -60,7 +60,7 @@ const ProjectCard = (project: IProjectsPreviewDTO) => {
                 {tagList.map((tag, index) => (
                     <span
                         key={index}
-                        className="px-3 py-1 bg-[#1B1F24] text-white rounded-md border-1"
+                        className="px-3 py-1 text-black bg-[#F9C74F] rounded-md border-1"
                         style={{ fontSize: "11px", fontWeight:"600" }}
                     >
                         {tag}

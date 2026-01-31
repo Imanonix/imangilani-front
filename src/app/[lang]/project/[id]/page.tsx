@@ -37,7 +37,7 @@ export default async function ProjectDetailsPage({ params }: Props){
     }
 
     return (
-        <section className="bg-[#393E46] min-h-screen py-10 px-4">
+        <section className="bg-[#393E46] min-h-screen py-10 px-4 leading-loose" style={{fontFamily: lang === "fa"? "Vazir" : "Roboto" }}>
             <div className="max-w-4xl mx-auto bg-[#222831] rounded-2xl shadow-lg p-6 md:p-10 space-y-6">
 
                 {/* Title */}
@@ -67,7 +67,7 @@ export default async function ProjectDetailsPage({ params }: Props){
 
                 {/* Summary */}
                 {project.summary && (
-                    <p className={`text-white leading-relaxed text-lg ${lang === "fa" ? "text-right" : "text-left"}`}>
+                    <p className={`text-white leading-relaxed  ${lang === "fa" ? "text-right" : "text-left"}`}>
                         {project.summary}
                     </p>
                 )}

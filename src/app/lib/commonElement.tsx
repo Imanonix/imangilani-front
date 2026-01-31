@@ -50,7 +50,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
 }
 export const Button = ({label, isPending,className="", ...props}:ButtonProps) => {
     return(
-        <button className="cursor-pointer w-1/2 py-2 rounded-lg mx-auto text-white border-1 hover:bg-[#fff] hover:text-[#393E46]" >
+        <button className="cursor-pointer w-1/2 py-2 rounded-lg mx-auto text-white border-1 hover:bg-[#fff] hover:text-[#393E46] avtive:scale-95" >
             {label}
         </button>
     )

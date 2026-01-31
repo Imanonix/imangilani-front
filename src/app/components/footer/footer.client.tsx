@@ -93,7 +93,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
 
             {/* Copyright */}
             <p className="text-center text-sm text-[#F9C74F]">
-                © {new Date().getFullYear()} MyCompany.{" "}
+                © {new Date().getFullYear()} imangilani.com.{" "}
                 {language === "fa"
                     ? "تمام حقوق محفوظ است"
                     : language === "de"
