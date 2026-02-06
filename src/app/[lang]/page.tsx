@@ -71,8 +71,8 @@ export default async function Home({ params }: { params: { lang: Lang }; }) {
     return (
         <div lang={language} className="w-full flex flex-wrap justify-center" style={{ direction: language === "fa" ? "rtl" : "ltr", fontFamily: language === "fa" ? "Vazir" : "Roboto", backgroundColor: "#393E46" }}>
             <div className="flex flex-col w-full items-center">
-                <div className="w-[90%] md:w-4/5 flex flex-wrap justify-center pt-10 pb-5">
-                    <div className="w-[100%] md:w-[48%] flex flex-col justify-center">
+                <div className="w-[90%] md:w-4/5 flex-col flex-wrap items-center justify-center pt-10 pb-5 mb-20 md:mb-30 lg:mb-40">
+                    <div className="w-[100%] flex flex-col justify-center">
                         <h1 className={`text-3xl font-bold mb-8 text-[#F9C74F] ${language === "fa" ? "text-right" : "text-left"}`}>
                             {t.heroTitle}
                         </h1>

@@ -62,16 +62,21 @@ const ScrollLine = ({ language }: ScrollLineProps) => {
 
         return () => clearInterval(interval);
     }, [currentIndex]);
-
+            
 
     return (
-        <div className="w-1/2 flex justify-center mx-auto my-0 
+        <div className="flex justify-center mx-auto my-0 
             w-[360px]
-            md:w-[650px]
+            md:w-[600px]
+            lg:w-[800px]
+            xl:w-[1000px]
             h-[250px]
             md:h-[300px]
+            lg:h-[400px]
+            xl:h-[500px]
+            relative
             ">
-            <div className={`w-4/5 relative w-full overflow-hidden`}>
+            <div className={`flex flex-col overflow-hidden`} >
                 {pages.map((item, index) => {
                     const Icon = serviceIcons[index % serviceIcons.length];
                     const Img = serviceImages[index % serviceImages.length];
