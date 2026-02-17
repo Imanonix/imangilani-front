@@ -9,16 +9,19 @@ const texts = {
     en: {
         project: "Project",
         visit: "Visit",
+        image: "Images",
         details: "Details",
     },
     fa: {
         project: "پروژه",
         visit: "مشاهده",
+        image: "تصاویر",
         details: "جزئیات",
     },
     de: {
         project: "Projekt",
         visit: "Besuchen",
+        gallery: "Gallery",
         details: "Details",
     },
 };
@@ -41,13 +44,13 @@ const ProjectCard = (project: IProjectsPreviewDTO) => {
                     <FaFolderOpen /> {t.project}
                 </h5>
 
-                <a
+                {/* <a
                     href={project.projectUrl ? project.projectUrl : "/"}
                     target="_blank"
                     className="text-sm flex items-center gap-1 text-[#F9C74F]"
                 >
                     {t.visit} <FaExternalLinkAlt />
-                </a>
+                </a> */}
             </div>
 
             {/* Title */}

@@ -69,6 +69,7 @@ const HeaderClient = ({ pages, socialMediaList, language }: IHeaderClientProps) 
                         ))
                     }
                 </ul>
+                {/* <Link href={`/${language}/galleries`}>Gallery</Link> */}
                 <ul className="flex">
                     {socialMediaList.map(item => (
                         <Link key={item.id} href={item.url} className="py-1 px-3 hover:text-[#F9C74F] cursor-pointer" target="_blank" rel="noopener noreferrer"> {IconMap[item.title]} </Link>

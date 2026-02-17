@@ -112,9 +112,9 @@ export default async function Page({ params }: PageProps) {
     const page = content.data
 
     return (
-        <div style={{backgroundColor:"#393E46" }} className="w-full flex flex-col-reverse md:flex-row px-3 md:px-6 lg:px-12 mx-auto py-12 min-h-full">
+        <div style={{backgroundColor:"#393E46" }} className="w-full flex flex-col-reverse gap-2 md:flex-row px-3 md:px-6 lg:px-12 mx-auto py-12 min-h-full">
             <Sidebar language={lang}/>
-            <div className=" max-w-4xl mx-auto rounded-2xl px-2 items-center pb-2 md:pb-5 space-y-8 ">
+            <div className=" w-full md:w-[65%] lg:w-[73%] xl:w-[75%] mx-auto rounded-2xl px-2 items-center pb-2 md:pb-5 space-y-8 ">
                 <h1 style={{fontFamily: lang === "fa"? "Vazir" : "Roboto"}} className={`text-3xl md:text-4xl text-[#F9C74F] font-bold ${lang === "fa" ? "text-right" : "text-left"}`}>
                     {page.title}
                 </h1>

@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import "../globals.css"
+import Cookieconsent from "../components/CookieConsent";
 
 export const metadata: Metadata = {
     title: "Iman Gilani",
@@ -29,10 +30,17 @@ export default async function RootLayout({ children, params }: LayoutProps) {
 
     return (
         <html lang={language} dir={language === "fa" ? "rtl" : "ltr"} className={roboto.className}>
-            <body>
+            <head>
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                />
+            </head>
+            <body style={{position:"relative"}}>
                 <Header language={language} />
                 {children}
                 <Footer language={language} />
+                <Cookieconsent />
             </body>
         </html>
     );

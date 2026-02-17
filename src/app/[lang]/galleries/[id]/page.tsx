@@ -1,51 +1,50 @@
-'use client'
+"use client"
 import apiEndPoint from "@/ApiEndPoint";
 import { ApiResponse } from "@/types/type";
-import { Box, Modal } from "@mui/material";
+import { Modal } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { FaCalendarAlt, FaTags, FaExternalLinkAlt } from "react-icons/fa";
 
-interface IProjectDetailsDTO {
-    id: number;
-    projectType: string;
-    projectUrl?: string | null;
-    projectDate: string;
-    projectDuration?: string | null;
-    projectTags: string;
-    isVisible: boolean;
-    title?: string | null;
-    summary?: string | null;
-    body?: string | null;
-    galleryTitle: string
+
+interface IPageProps {
+    params: {
+        lang: string
+        id: number
+    }
+}
+interface IImage {
+    id: number
+    url: string
+}
+interface IGallery {
+    id: number
+    title: string
     description: string
-    urls: string[]
+    images: IImage[]
 }
-interface Props {
-    params: { id: string; lang: string };
-}
-export default function ProjectDetailsPage({ params }: Props) {
+export default  function page(params: IPageProps) {
     const { id, lang } = useParams();
     const [isLoading, setIsLoading] = useState<boolean>(true)
     // const res = await fetch(
     //     `${apiEndPoint.baseURL}/api/public/project?id=${id}&lang=${lang}`
     // );
-    const [project, setProject] = useState<IProjectDetailsDTO>()
+    const [gallery, setGallery] = useState<IGallery>()
     const [selectedImage, setSelectedImage] = useState<string>("")
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    const [imageList, setImageList] = useState<string[]>([])
+    const [imageList, setImageList] = useState<IImage[]>([])
     const [currentIndex, setCurrentIndex] = useState<number>(0)
 
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await fetch(`${apiEndPoint.baseURL}/api/public/project?id=${id}&lang=${lang}`, {
+                const response = await fetch(`${apiEndPoint.baseURL}/api/public/gallery?id=${id}&lang=${lang}`, {
                     method: "GET"
                 })
-                const data: ApiResponse<IProjectDetailsDTO> = await response.json()
+                const data: ApiResponse<IGallery> = await response.json()
                 if (data.status === 200) {
-                    setProject(data.data)
-                    setImageList(data.data.urls)
+                    setGallery(data.data)
+                    setImageList(data.data.images)
+                    console.log(data.data)
                     return
                 }
             }
@@ -67,22 +66,22 @@ export default function ProjectDetailsPage({ params }: Props) {
     const handlePrev = () => {
         if (currentIndex == 0) {
             setCurrentIndex(imageList.length - 1)
-            setSelectedImage(imageList[imageList.length - 1])
+            setSelectedImage(imageList[imageList.length - 1].url)
         }
         else {
             setCurrentIndex((prev) => (prev - 1) % imageList.length)
-            setSelectedImage(imageList[currentIndex])
+            setSelectedImage(imageList[currentIndex].url)
         }
     };
 
     const handleNext = () => {
         if (currentIndex == imageList.length - 1) {
             setCurrentIndex(0)
-            setSelectedImage(imageList[0])
+            setSelectedImage(imageList[0].url)
         }
         else {
             setCurrentIndex((prev) => (prev + 1) % imageList.length)
-            setSelectedImage(imageList[currentIndex])
+            setSelectedImage(imageList[currentIndex].url)
         }
     };
 
@@ -100,80 +99,31 @@ export default function ProjectDetailsPage({ params }: Props) {
     return (
         <section className="bg-[#393E46] min-h-screen py-10 px-4 leading-loose" style={{ fontFamily: lang === "fa" ? "Vazir" : "Roboto" }}>
             <div className="max-w-4xl mx-auto bg-[#222831] rounded-2xl shadow-lg p-6 md:p-10 space-y-6">
-
                 {/* Title */}
                 <h1 className="w-full text-center text-3xl font-bold text-white capitalize">
-                    {project?.title}
+                    {gallery?.title}
                 </h1>
 
-                <span className="flex w-full flex-wrap justify-center items-center gap-2">
-                    <FaTags />
-                    {project?.projectTags.split(",").filter(item => item !== "").map((tag, index) => (
-                        <span key={index} className="px-3 py-1 bg-[#F9C74F] text-black text-xs md:text-sm rounded-full"> {tag} </span>
-                    ))}
-                </span>
-                {/* Meta info */}
-                <div className="flex width-full justify-around flex-wrap gap-4 text-sm text-white">
-                    <span className="flex items-center gap-2">
-                        <FaCalendarAlt />
-                        {project !== undefined && new Date(project.projectDate).toLocaleDateString()}
-                    </span>
-
-                    {project?.projectDuration && (
-                        <span className="px-3 py-1 rounded-full">
-                            {project.projectDuration}
-                        </span>
-                    )}
-                </div>
-
                 {/* Summary */}
-                {project?.summary && (
+                {gallery?.description && (
                     <p className={`text-white leading-relaxed  ${lang === "fa" ? "text-right" : "text-left"}`}>
-                        {project.summary}
+                        {gallery.description}
                     </p>
                 )}
 
-                {/* Body (HTML) */}
-                {project?.body && (
-                    <div
-                        className={`prose prose-teal max-w-none prose-img:rounded-xl prose-a:text-teal-600 ${lang === "fa" ? "text-right" : "text-left"}`}
-                        dangerouslySetInnerHTML={{ __html: project.body }}
-                    />
-                )}
-
-                {/* External link */}
-                {project?.projectUrl && (
-                    <a
-                        href={project.projectUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="
-                            inline-flex items-center gap-2
-                            text-black bg-[#F9C74F] hover:bg-[#fdbc23]
-                            px-6 py-3 rounded-xl transition
-                        "
-                    >
-                        <FaExternalLinkAlt />
-                        {lang === "fa" ? "مشاهده پروژه" : "View Project"}
-                    </a>
-                )}
-                <div>{project?.galleryTitle}</div>
                 <div className="flex flex-wrap max-w-4xl justify-center gap-5">
                     {imageList.map((image, index) => (
-                        <img className="w-[45%]  cursor-pointer" key={index} src={`${apiEndPoint.baseURL}${image}`} onClick={() => setImage(index)} />
+                        <img className="w-[45%]  cursor-pointer" key={index} src={`${apiEndPoint.baseURL}${image.url}`} onClick={() => setImage(index)} />
                     ))}
                 </div>
                 {
                     <Modal
                         open={isOpen}
                         onClose={onClose}
-                        className="flex justify-center items-center border-none z-5 bg-[#222831]"
+                        className="flex w-full justify-center items-center border-none z-5 bg-[#222831]"
                         onClick={() => setIsOpen(false)}
                     >
-                        <div
-
-                            className="flex flex-row justify-between items-center w-[80%] h-auto p-4 border-none outline-none "
-                        >
+                        <div className="flex flex-row items-center justify-center gap-5 w-[80%] h-auto p-4 border-none outline-none ">
                             {/* Left Arrow */}
                             <span
                                 className="text-[36px] cursor-pointer select-none z-10"
@@ -188,8 +138,8 @@ export default function ProjectDetailsPage({ params }: Props) {
                             {/* Image */}
                             <img
                                 onClick={(e) => e.stopPropagation()}
-                                src={`${apiEndPoint.baseURL}${imageList[currentIndex]}`}
-                                className="border max-h-[80vh] max-w-[80%] object-contain rounded-lg border-none"
+                                src={`${apiEndPoint.baseURL}${imageList[currentIndex].url}`}
+                                className="border max-w-[100%] object-contain rounded-lg border-none"
                                 alt="gallery"
                             />
 
@@ -210,7 +160,7 @@ export default function ProjectDetailsPage({ params }: Props) {
                                 }}
                                 className="absolute text-2xl top-[5%] right-[5%] -translate-x-1/2 text-white px-5 py-3 rounded-full cursor-pointer border-1 hover:border-yellow-400 hover:text-yellow-400"
                             >
-                                <i className="fa fa-close"></i> 
+                                <i className="fa fa-close"></i>
 
                             </span>
                         </div>
@@ -220,6 +170,4 @@ export default function ProjectDetailsPage({ params }: Props) {
             </div>
         </section>
     );
-};
-
-
+}

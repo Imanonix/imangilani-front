@@ -72,9 +72,9 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
             className="
         sticky top-24 h-fit
         w-full
-        md:w-2/5
-        lg:w-1/4 
-        xl:w-1/5
+        md:w-[33%]
+        lg:w-[25%] 
+        xl:w-[20%]
         border border-[#F9C74F]
         bg-[#222831]
         p-3 lg:p-4
@@ -134,7 +134,7 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
                     href="mailto:hello@example.com"
                     className="block mb-3 text-sm hover:underline"
                 >
-                    hello@example.com
+                    iman@imangilani.com
                 </a>
 
                 <div className="flex gap-3">

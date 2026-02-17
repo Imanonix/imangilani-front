@@ -64,7 +64,7 @@ const FooterClient = ({ pages, socialMediaList, language }: IFooterClientProps) 
 
                     <p className="flex items-center gap-2 mb-2">
                         <FaEnvelope />
-                        info@example.com
+                        iman@imangilani.com
                     </p>
 
                     <p className="flex items-center gap-2 mb-4">
