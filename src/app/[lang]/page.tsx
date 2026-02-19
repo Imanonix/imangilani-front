@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: { lang: Lang }; }) {
             <div className="flex flex-col w-full items-center">
                 <div className="w-[90%] md:w-4/5 flex-col flex-wrap items-center justify-center pt-10 pb-5 mb-20 md:mb-30 lg:mb-40">
                     <div className="w-[100%] flex flex-col justify-center">
-                        <h1 className={`text-3xl font-bold mb-8 text-[#F9C74F] ${language === "fa" ? "text-right" : "text-left"}`}>
+                        <h1 className={`text-2xl md:text-3xl font-bold mb-8 text-[#F9C74F] ${language === "fa" ? "text-right" : "text-left"}`}>
                             {t.heroTitle}
                         </h1>
                         <p className="text-lg leading-8">
@@ -84,24 +84,22 @@ export default async function Home({ params }: { params: { lang: Lang }; }) {
                 </div>
 
                 {/* SERVICES */}
-                <div className="w-[90%] md:w-4/5 flex flex-col items-center justify-center pb-10">
-                    <div className="flex flex-col items-start">
-                        <h2 className="text-3xl font-bold mt-4 mb-4 text-[#F9C74F]">
-                            {t.servicesTitle}
-                        </h2>
-                        <p className="text-lg leading-8 mb-6">
+                <div className="w-[90%] md:w-4/5 flex flex-col items-center justify-center pb-15 lg:mt-14">
+                    <h2 className="self-start text-2xl md:text-3xl font-bold mt-4 mb-4 text-[#F9C74F]">
+                        {t.servicesTitle}
+                    </h2>
+                    <div className="flex flex-col lg:flex-row items-start">
+                        <p className="lg:w-[48%] text-lg leading-8 mb-6">
                             {t.servicesDescription}
                         </p>
+                        <ScrollLine language={language} />
                     </div>
-
-                    {/* <CarouselSlider /> */}
-                    <ScrollLine language={language} />
                 </div>
             </div>
 
             {/* PROJECTS */}
             <section className="w-[90%] md:w-4/5 flex flex-col items-start mx-auto pb-10">
-                <h2 className="text-3xl font-bold mb-4 text-[#F9C74F]">
+                <h2 className="text-2xl md:text-3xl font-bold  text-[#F9C74F]">
                     {t.projectsTitle}
                 </h2>
 

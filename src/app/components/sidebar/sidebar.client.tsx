@@ -4,7 +4,7 @@ import { IPageDTO, ISocialMedia, Language } from "@/types/type";
 import { Langar } from "next/font/google";
 import Link from "next/link";
 import { JSX } from "react";
-import { FaEnvelope, FaInstagram, FaLinkedin, FaXing } from "react-icons/fa";
+import { FaEnvelope, FaInstagram, FaLinkedin, FaPhone, FaXing } from "react-icons/fa";
 
 const technologies = [
     "React",
@@ -95,7 +95,7 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
           `}
                 >
                     {pages.map((p) => (
-                        <li className="my-2" key={p.id}>
+                        <li className="my-3" key={p.id}>
                             <Link
                                 href={`/${language}/${p.slug}/${p.id}`}
                                 className="hover:text-[#F9C74F] transition-colors"
@@ -108,7 +108,7 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
             </section>
 
             {/* Technologies */}
-            <section>
+            {/* <section>
                 <h3 className="mb-4 text-[13px] font-semibold tracking-widest uppercase text-white">
                     {content[language].tech}
                 </h3>
@@ -122,22 +122,29 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
                         </span>
                     ))}
                 </div>
-            </section>
+            </section> */}
 
             {/* Quick Contact */}
             <section>
                 <h3 className="mb-4 text-[13px] font-semibold tracking-widest uppercase text-white">
                     {content[language].contact}
                 </h3>
-
-                <a
-                    href="mailto:hello@example.com"
-                    className="block mb-3 text-sm hover:underline"
+                <p className="flex items-center gap-2 my-3">
+                    <FaEnvelope />
+                    <a
+                    href="mailto:iman@imangilani.com"
+                    className="block text-sm hover:underline"
                 >
                     iman@imangilani.com
                 </a>
+                </p>
 
-                <div className="flex gap-3">
+                <p className="flex items-center gap-2 my-3">
+                    <FaPhone />
+                    +49 163 1394782
+                </p>
+                
+                <div className="flex gap-3 my-3">
                     {socialMediaList.map((item) => (
                         <Link
                             key={item.id}
@@ -152,7 +159,7 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
                 </div>
             </section>
 
-            {/* Download */}
+            {/* Download
             <section>
                 <a
                     href="/portfolio.pdf"
@@ -167,7 +174,7 @@ const SidebarClient = ({ language, pages, socialMediaList }: Props) => {
                 >
                     {content[language].link}
                 </a>
-            </section>
+            </section> */}
 
             {/* Availability */}
             <section className="flex items-center gap-2 text-sm font-medium text-white">

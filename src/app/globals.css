@@ -108,7 +108,7 @@ body{
   transform-style: preserve-3d;
   transform: perspective(1000px);
   animation: myAnimation 20s linear infinite;
-  margin: 5rem auto 0 auto;
+  margin: 7rem auto 0 auto;
   @media (min-width: 1281px) and (max-width: 1536px) {
     width: calc(70% - 1rem);
   }

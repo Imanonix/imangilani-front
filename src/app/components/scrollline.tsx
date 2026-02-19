@@ -66,14 +66,10 @@ const ScrollLine = ({ language }: ScrollLineProps) => {
 
     return (
         <div className="flex justify-center mx-auto my-0 
-            w-[360px]
-            md:w-[600px]
-            lg:w-[800px]
-            xl:w-[1000px]
+            w-[100%]
             h-[250px]
-            md:h-[300px]
-            lg:h-[400px]
-            xl:h-[500px]
+            lg:w-[50%]
+            lg:h-[300px]
             relative
             ">
             <div className={`flex flex-col overflow-hidden`} >

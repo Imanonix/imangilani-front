@@ -23,14 +23,8 @@ const Card = ({ input, icon: Icon, imag, currentIndex }: CardProps) => {
             className={` 
                 relative  
                 flex flex-col items-center gap-6                
-                w-[360px]
-                md:w-[600px]
-                lg:w-[800px]
-                xl:w-[1000px]
-                h-[250px]
-                md:h-[300px]
-                lg:h-[400px]
-                xl:h-[500px]
+                w-[100%]
+                h-auto
                 hover:text-[#F9C74F]
                 text-gray-200
                 text-[17px] font-semibold
@@ -42,7 +36,7 @@ const Card = ({ input, icon: Icon, imag, currentIndex }: CardProps) => {
             <div className="text-gray-200 absolute top-10">
                 <Icon size={48} />
             </div>
-            <div className="absolute text-1xl md:text-3xl top-35">{input}</div>
+            <div className="absolute text-1xl md:text-3xl lg:text-2xl top-35">{input}</div>
 
 
 

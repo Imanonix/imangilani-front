@@ -36,7 +36,7 @@ const ProjectCard = (project: IProjectsPreviewDTO) => {
         <div className="
             flex flex-col bg-[#222831] p-6 rounded shadow-md border border-[#C2C8CC]
             hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-            sm:w-[90%] md:w-[48%]
+            sm:w-[90%] md:w-[48%] lg:w-[44%]
         ">
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
