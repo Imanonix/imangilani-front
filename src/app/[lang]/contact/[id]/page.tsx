@@ -122,8 +122,8 @@ const page = () => {
     };
     if (!content) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                {lang === "fa" ? "محتوایی یافت نشد" : "Content not found"}
+            <div className="bg-[#393E46] min-h-screen flex items-center justify-center">
+                {lang === "fa" ? "در حال بارگذاری..." : "Loading ..."}
             </div>
         )
     }
@@ -132,15 +132,15 @@ const page = () => {
 
         <div className='self-center flex flex-col items-center md:flex-row md:justify-center md:items-start w-full mx-auto py-10 gap-2 bg-[#393E46]'  >
 
-            <section className="w-[90%] md:w-[45%] px-10 flex flex-col items-start" style={{ direction: lang === "fa" ? "rtl" : "ltr" }}>
+            <section className="w-[90%] md:w-[45%] md:px-10 flex flex-col items-start" style={{ direction: lang === "fa" ? "rtl" : "ltr" }}>
                 <h2 className="text-3xl font-bold mb-4 text-gray-800" style={{ color: "#F9C74F" }}>
                     {content.title}
                 </h2>
                 <div dangerouslySetInnerHTML={{ __html: content.body }} />
             </section>
 
-            <section className='w-[90%] md:w-[45%]'>
-                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col align-center p-10 w-full bg-[#222831]' >
+            <section className='w-[100%] md:w-[45%]'>
+                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col align-center p-6 md:p-10 w-full bg-[#222831]' >
                     <Input label='Email*' error={errors.email} type="email" {...register("email", { required: "Email is required" })} />
                     <Input label='Name*' error={errors.name} type="text" {...register("name", { required: "Name is required", maxLength: { value: 100, message: "Name should be at most 100 characters" } })} />
                     <Input label='Subject*' error={errors.subject} type="text" {...register("subject", { required: "Subject is required", maxLength: { value: 300, message: "Subject should be at most 70 characters" } })} />

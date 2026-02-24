@@ -29,19 +29,19 @@ export default async function RootLayout({ children, params }: LayoutProps) {
     const language = lang as "en" | "fa" | "de";
 
     return (
-        <html lang={language} dir={language === "fa" ? "rtl" : "ltr"} className={roboto.className}>
-            <head>
-                <link
-                    rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                />
-            </head>
-            <body style={{position:"relative"}}>
+        <section lang={language} dir={language === "fa" ? "rtl" : "ltr"} className={roboto.className}>
+
+            <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            />
+
+            <section style={{ position: "relative" }}>
                 <Header language={language} />
                 {children}
                 <Footer language={language} />
                 <Cookieconsent />
-            </body>
-        </html>
+            </section>
+        </section>
     );
 }

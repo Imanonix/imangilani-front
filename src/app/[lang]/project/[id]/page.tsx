@@ -91,7 +91,7 @@ export default function ProjectDetailsPage({ params }: Props) {
     };
     if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center text-gray-500">
+            <div className="bg-[#393E46] min-h-screen flex items-center justify-center text-gray-500">
                 {lang === "fa" ? "در حال بارگذاری" : "Loading ..."}
             </div>
         );
