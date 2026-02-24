@@ -46,7 +46,6 @@ const page = () => {
     const [isPending, setIsPending] = useState<boolean>(false)
     const [fetchError, setFetchError] = useState<string>("")
     const [fetchMessage, setFetchMessage] = useState<string>()
-    const [contactUsInfo, setContactUsInfo] = useState<ContactUsDTO>()
     const [responseMessage, setResponseMessage] = useState<string>("")
     const [content, setContent] = useState<IContent | null>(null)
 
